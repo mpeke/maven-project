@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration >
+  
+  
+     <appender name="RollingFile-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:/LogsFiles/MSLog/Patient.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>C:/LogsFiles/MSLogArc/Patient.log%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1KB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+        <pattern>%date{ISO8601} %-5level [%thread] %-4relative %logger %msg%n</pattern>
+          <!--    <pattern>%msg%n</pattern> -->
+        </encoder>
+    </appender>
+    
+   
+   
+    <root level="INFO">
+        <appender-ref ref="RollingFile-Appender" />
+    </root>
+</configuration>
